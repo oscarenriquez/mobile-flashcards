@@ -5,7 +5,7 @@ React Native, Redux, React Native Navigation, and the base stack for the applica
 
 ## Installation
 
-Use the package manager **npm** or [Yarn](https://yarnpkg.com/) to install Mobiel Flashcards.
+Use the package manager **npm** or [Yarn](https://yarnpkg.com/) to install Mobile Flashcards.
 
 ## System Tools:
 For launching the application for development:
@@ -71,9 +71,58 @@ yarn ios
 
 ## Project tree:
 ```bash 
-
+.
+├── App.js
+├── README.md
+├── __tests__
+│   └── App.js
+├── actions
+│   └── index.js
+├── android
+│   ├── app
+│   ├── build.gradle
+│   ├── gradle
+│   ├── gradle.properties
+│   ├── gradlew
+│   ├── gradlew.bat
+│   └── settings.gradle
+├── api
+│   └── _FlashCardsAPI.js
+├── app.json
+├── babel.config.js
+├── components
+│   ├── Deck.js
+│   ├── DeckList.js
+│   ├── FlashCard.js
+│   ├── NewDeck.js
+│   ├── NewQuestion.js
+│   └── Quiz.js
+├── constants
+│   └── index.js
+├── index.js
+├── ios
+│   ├── Podfile
+│   ├── Podfile.lock
+│   ├── Pods
+│   ├── mobileflashcards
+│   ├── mobileflashcards.xcodeproj
+│   └── mobileflashcards.xcworkspace
+├── metro.config.js
+├── package.json
+├── reducers
+│   └── index.js
+├── sagas
+│   └── index.js
+├── store
+│   └── index.js
+├── style.js
+├── utils
+│   └── logger.js
+├── web-build
+│   └── register-service-worker.js
+└── yarn.lock
 
 ```
 ### Create Project Tree
 
-`tree -v -L 4 -I 'node_modules|build|test_*' --charset utf-8 `
+`tree -v -L 2 -I 'node_modules|build|test_*' --charset utf-8 `

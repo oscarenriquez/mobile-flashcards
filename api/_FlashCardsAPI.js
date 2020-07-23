@@ -1,5 +1,6 @@
-import { AsyncStorage, Alert } from 'react-native'
-const FLASH_CARDS_KEY = 'mobileFlashCardsBD'
+import { Alert } from 'react-native'
+import AsyncStorage from '@react-native-community/async-storage';
+const FLASH_CARDS_KEY = 'mobileFlashCardsBD_OJET'
 
 const initialData = {
     React: {
@@ -29,14 +30,10 @@ const initialData = {
 export const getDecks = async () => {
     try {
         const decks = await AsyncStorage.getItem(FLASH_CARDS_KEY)
-        if(!decks) {
-            AsyncStorage.setItem(FLASH_CARDS_KEY, JSON.stringify(initialData), () => {
-                console.log('Fetching initial data')
-                Alert.alert('Fetching initial data')
-            });
+        if(decks === null) {
+            await AsyncStorage.setItem(FLASH_CARDS_KEY, JSON.stringify(initialData));
             return initialData
         }
-        Alert.alert(decks)
         return JSON.parse(decks)
     } catch (error) {
         Alert.alert(error.message)

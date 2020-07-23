@@ -12,6 +12,7 @@ import {StatusBar} from "react-native";
 import configureStore from "./store";
 import {fetchDecks} from "./actions";
 import {Provider} from "react-redux";
+import {registerForPushNotificationsAsync} from "./utils/helpers";
 
 const Tabs = createBottomTabNavigator()
 
@@ -40,34 +41,12 @@ const Home = () => {
 
 const Main = createStackNavigator()
 
-/*
-
-const MainNavigator = StackNavigator({
-  Home: {
-    screen: Tabs,
-  },
-  EntryDetail: {
-    screen: EntryDetail,
-    navigationOptions: {
-      headerTintColor: white,
-      headerStyle: {
-        backgroundColor: purple,
-      }
-    }
-  }
-})
-*/
-const navigationOptions= {
-    headerTintColor: "#000000",
-    headerStyle: {
-        backgroundColor: "#76DD77",
-    },
-    headerTitleStyle: {
-        fontWeight: 'boldder',
-    }
-}
 const App = () => {
   const store = configureStore()
+
+  React.useEffect(() => {
+      registerForPushNotificationsAsync()
+  })
 
   return (
       <Provider store={store}>
@@ -81,18 +60,11 @@ const App = () => {
                     component={Home}
                     options={{
                         headerTitle: null,
-                        headerStyle: navigationOptions
                     }}
                 />
-                <Main.Screen name="FlashCard" component={FlashCard} options={{
-                    headerStyle: navigationOptions
-                }}/>
-                <Main.Screen name="NewQuestion" component={NewQuestion} options={{
-                    headerStyle: navigationOptions
-                }}/>
-                <Main.Screen name="Quiz" component={Quiz} options={{
-                    headerStyle: navigationOptions
-                }}/>
+                <Main.Screen name="FlashCard" component={FlashCard}/>
+                <Main.Screen name="NewQuestion" component={NewQuestion}/>
+                <Main.Screen name="Quiz" component={Quiz}/>
               </Main.Navigator>
           </NavigationContainer>
       </Provider>

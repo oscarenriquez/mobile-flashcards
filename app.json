@@ -5,6 +5,7 @@
     "name": "mobile-flashcards",
     "slug": "mobile-flashcards",
     "version": "1.0.0",
+    "icon": "https://img.icons8.com/color/48/000000/learning.png",
     "assetBundlePatterns": [
       "**/*"
     ]
